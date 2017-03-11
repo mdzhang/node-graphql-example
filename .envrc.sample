@@ -1,0 +1,6 @@
+##################################
+# Local development
+##################################
+
+export PATH=$(npm bin):$PATH
+export ENV=development
