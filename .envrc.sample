@@ -4,3 +4,4 @@
 
 export PATH=$(npm bin):$PATH
 export ENV=development
+export PM2_HOME=.pm2

@@ -1,2 +1,5 @@
+dist/
+node_modules/
 .envrc
+.pm2
 npm-debug.log
