@@ -19,10 +19,10 @@ app.listen(port, host, (err) => {
 });
 
 // Catch all error handling
-// app.use((err, req, res, next) => {
-//   console.error(err.stack);
-//   res.end(err.message);
-// });
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.end(err.message);
+});
 
 // ----------------------------------------
 // server shutdown
