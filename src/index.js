@@ -18,6 +18,12 @@ app.listen(port, host, (err) => {
   else console.log(`Application listening on port: ${port}`);
 });
 
+// Catch all error handling
+// app.use((err, req, res, next) => {
+//   console.error(err.stack);
+//   res.end(err.message);
+// });
+
 // ----------------------------------------
 // server shutdown
 // ----------------------------------------

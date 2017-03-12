@@ -7,4 +7,11 @@ router.get('/', (req, res) => {
   res.send(version);
 });
 
+router.get('/crashme', (req, res, next) => {
+  // Express will handle synchronous crashing
+  process.nextTick(() => {
+    throw new Error('Crashed!');
+  });
+});
+
 export default router;

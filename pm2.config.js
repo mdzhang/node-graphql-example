@@ -20,12 +20,13 @@ const configByEnv = {
   development: {
     apps: {
       api: {
+        autorestart: false,
         exec_interpreter: 'babel-node',
-        max_restarts: 2,
-        watch: [
-          'node_modules',
-          'src',
-        ],
+        // max_restarts: 2,
+        // watch: [
+        //   'node_modules',
+        //   'src',
+        // ],
       },
     },
   },
