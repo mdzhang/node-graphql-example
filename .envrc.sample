@@ -3,5 +3,9 @@
 ##################################
 
 export PATH=$(npm bin):$PATH
-export ENV=development
+export ENV=production
 export PM2_HOME=.pm2
+
+# ms
+export PM2_GRACEFUL_TIMEOUT=3000
+export PM2_GRACEFUL_LISTEN_TIMEOUT=3000

@@ -17,3 +17,17 @@ app.listen(port, host, (err) => {
   if (err) console.log(err);
   else console.log(`Application listening on port: ${port}`);
 });
+
+// ----------------------------------------
+// server shutdown
+// ----------------------------------------
+process.on('message', (msg) => {
+  if (msg === 'shutdown') {
+    console.log('Closing all connections...');
+
+    setTimeout(() => {
+      console.log('Finished closing connections');
+      process.exit(0);
+    }, 300);
+  }
+});
