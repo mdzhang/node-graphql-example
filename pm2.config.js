@@ -10,7 +10,7 @@ const defaultConfig = {
         NODE_ENV: process.env.ENV,
         PORT: 8080,
       },
-      log_date_format: 'YYYY-MM-DD HH:mm Z',
+      log_date_format: 'DD/MMM/YYYY:HH:mm:ss ZZ',
       script: './src/index.js',
     },
   },

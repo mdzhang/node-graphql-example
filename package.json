@@ -18,6 +18,7 @@
   "scripts": {
     "build": "babel src -d dist",
     "lint": "eslint src",
+    "rebuild:dev": "npm run build && pm2 flush && npm run stop && npm run start && pm2 logs api",
     "refresh:dev": "pm2 flush && npm run stop && npm run start",
     "refresh:prod": "npm run build && pm2 gracefulReload api",
     "start": "pm2 start pm2.config.js",
