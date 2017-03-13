@@ -1,9 +1,15 @@
 import express from 'express';
 import routes from './routes';
+import morgan from 'morgan';
 
 const port = process.env.PORT || 8080;
 const host = 'localhost';
 const app = express();
+
+// ----------------------------------------
+// logger
+// ----------------------------------------
+app.use(morgan('common'));
 
 // ----------------------------------------
 // routes

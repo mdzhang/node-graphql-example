@@ -3,7 +3,7 @@
 ##################################
 
 export PATH=$(npm bin):$PATH
-export ENV=production
+export ENV=development
 export PM2_HOME=.pm2
 
 # ms
