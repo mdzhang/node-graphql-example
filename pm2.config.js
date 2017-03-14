@@ -7,8 +7,15 @@ const defaultConfig = {
     api: {
       name: 'api',
       env: {
+        NODE_APP_INSTANCE: '',
         NODE_ENV: process.env.ENV,
         PORT: 8080,
+      },
+      env_development: {
+        NODE_CONFIG_DIR: './src/config',
+      },
+      env_production: {
+        NODE_CONFIG_DIR: './dist/config',
       },
       log_date_format: 'DD/MMM/YYYY:HH:mm:ss ZZ',
       script: './src/index.js',

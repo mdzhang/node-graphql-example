@@ -1,6 +1,8 @@
+/* eslint-disable no-console */
 import express from 'express';
 import routes from './routes';
-import morgan from 'morgan';
+import handleError from './middleware/handleError';
+import logRequest from './middleware/logRequest';
 
 const port = process.env.PORT || 8080;
 const host = 'localhost';
@@ -9,9 +11,7 @@ const app = express();
 // ----------------------------------------
 // logger
 // ----------------------------------------
-morgan.token('pid', () => process.pid);
-
-app.use(morgan('[:pid] :remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length]'));
+app.use(logRequest);
 
 // ----------------------------------------
 // routes
@@ -21,10 +21,7 @@ app.use('/', routes);
 // ----------------------------------------
 // default error handler
 // ----------------------------------------
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.end(err.message);
-});
+app.use(handleError);
 
 // ----------------------------------------
 // server start
@@ -33,7 +30,10 @@ const server = app.listen(port, host, (err) => {
   if (err) console.log(err);
   else {
     console.log(`[${process.pid}] Application listening on port: ${port}`);
-    process.send('ready');
+
+    if (process.send) {
+      process.send('ready');
+    }
   }
 });
 
